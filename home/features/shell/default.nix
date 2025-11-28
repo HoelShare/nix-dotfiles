@@ -17,6 +17,26 @@
     enableAutosuggestions = true;
     syntaxHighlighting.enable = true;
 
+    ohMyZsh = {
+      enable = true;
+      plugins = [
+        "sudo"
+        "git"
+        "fzf"
+        "docker"
+        "aws"
+        "terraform"
+        "golang"
+        "python"
+        "php"
+        "npm"
+        "history"
+        "colored-man-pages"
+        "command-not-found"
+      ];
+
+    }
+
     # workaround for fixing the path order: https://github.com/LnL7/nix-darwin/issues/122
     initExtra = ''
       # Homebrew config
@@ -50,42 +70,12 @@
     '';
   };
 
-  programs.oh-my-zsh = {
-    enable = true;
-    plugins = [
-      "git"
-      "fzf"
-      "docker"
-      "aws"
-      "terraform"
-      "golang"
-      "python"
-      "php"
-      "npm"
-      "history"
-      "colored-man-pages"
-      "command-not-found"
-    ];
-    # Use empty theme to let Starship handle the prompt
-    theme = "";
-  };
-
   programs.starship = {
     enable = true;
   };
 
   home.file = {
     ".config/starship.toml".source = ./starship.toml;
-  };
-
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  programs.eza = {
-    enable = true;
-    enableZshIntegration = true;
   };
 
   home.shellAliases = {
