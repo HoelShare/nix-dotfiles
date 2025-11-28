@@ -7,23 +7,22 @@
 }: {
   imports = [
     ../shared/aerospace.nix
-    ../shared/skhd.nix
     ../shared/brew.nix
     ../shared/system.nix
     ../shared/fonts.nix
   ];
 
   system.stateVersion = 5;
-  system.primaryUser = "kevin";
+  system.primaryUser = "sebastian";
 
   ids.gids.nixbld = 30000;
 
-  users.users.kevin = {
-    home = "/Users/kevin";
-    shell = "${pkgs.fish}/bin/fish";
+  users.users.sebastian = {
+    home = "/Users/sebastian";
+    shell = "${pkgs.zsh}/bin/zsh";
   };
 
-  home-manager.users.kevin = {
+  home-manager.users.sebastian = {
     imports = [
       ../../home/SW-GJGFVMVR73.nix
     ];
@@ -31,16 +30,15 @@
 
   environment.systemPackages = with pkgs; [
     raycast
-    obsidian
   ];
 
   nixpkgs.config.allowUnfree = true;
 
-  programs.fish.enable = true;
-  environment.shells = [ "${pkgs.fish}/bin/fish" ];
+  programs.zsh.enable = true;
+  environment.shells = [ "${pkgs.zsh}/bin/zsh" ];
 
   documentation.enable = false;
-  documentation.man.enable = false;
+  documentation.man.enable = true;
 
   time.timeZone = "Europe/Berlin";
 

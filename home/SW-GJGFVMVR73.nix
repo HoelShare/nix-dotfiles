@@ -5,8 +5,8 @@
     ./default.nix
   ];
 
-  home.username = "kevin";
-  home.homeDirectory = "/home/kevin";
+  home.username = "sebastian";
+  home.homeDirectory = "/Users/sebastian";
 
   targets.genericLinux.enable = true;
 }

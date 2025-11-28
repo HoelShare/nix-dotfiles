@@ -16,10 +16,6 @@
     };
 
     devenv.url = "github:cachix/devenv/v1.10";
-
-    sops-nix.url = "github:Mic92/sops-nix";
-
-    mac-app-util.url = "github:hraban/mac-app-util";
   };
 
   outputs =
@@ -29,14 +25,12 @@
     , nix-darwin
     , home-manager
     , devenv
-    , sops-nix
     , ...
     }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
       extraArgs = {
-        inherit sops-nix;
         flake = self;
       };
     in
@@ -69,22 +63,6 @@
               };
             }
           ];
-        };
-      };
-
-      homeConfigurations = {
-        # VM running Arch Linux
-        "kevin@archlinux-vm" = home-manager.lib.homeManagerConfiguration {
-          modules = [ ./home/archlinux-vm.nix ];
-          pkgs = import nixpkgs { system = "x86_64-linux"; };
-          extraSpecialArgs = extraArgs;
-        };
-
-        # WSL2 running Ubuntu
-        "kevin@KevinsPC" = home-manager.lib.homeManagerConfiguration {
-          modules = [ ./home/kevins-pc.nix ];
-          pkgs = import nixpkgs { system = "x86_64-linux"; };
-          extraSpecialArgs = extraArgs;
         };
       };
     };

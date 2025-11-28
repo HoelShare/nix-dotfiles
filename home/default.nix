@@ -4,16 +4,15 @@
 }: {
 
   imports = [
-    flake.inputs.sops-nix.homeManagerModule
-    ./features/shell
-    ./features/packages
     ./features/git
-    ./features/nvim
-    ./features/secrets
+    ./features/hammerspoon
+    ./features/nano
+    ./features/packages
+    ./features/php
+    ./features/python
+    ./features/shell
     ./features/tmux
     ./features/wezterm
-    ./features/go
-    ./features/php
   ];
 
   # This value determines the Home Manager release that your configuration is
@@ -26,7 +25,7 @@
   home.stateVersion = "23.05"; # Please read the comment before changing.
 
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = "nano";
   };
 
   # Let Home Manager install and manage itself.

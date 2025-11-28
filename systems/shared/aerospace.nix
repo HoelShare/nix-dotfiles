@@ -30,19 +30,61 @@
         inner.vertical = 10;
       };
 
+      on-window-detected = [
+        {
+          "if".app-name-regex-substring = "discord";
+          run = "layout floating";
+        }
+        {
+          "if".app-name-regex-substring = "whatsapp";
+          run = "layout floating";
+        }
+        {
+          "if".app-name-regex-substring = "spotify";
+          run = "layout floating";
+        }
+        {
+          "if".app-name-regex-substring = "chatgpt";
+          run = "layout floating";
+        }
+        {
+          "if".app-name-regex-substring = "slack";
+          run = "layout floating";
+        }
+      ];
+
       workspace-to-monitor-force-assignment = {
         "0" = "built-in";
       };
 
       key-mapping.preset = "qwerty";
       mode.main.binding = {
-        alt-f1 = "workspace 0";
-        alt-1 = "workspace 1";
-        alt-2 = "workspace 2";
-        alt-3 = "workspace 3";
-        alt-4 = "workspace 4";
-        alt-5 = "workspace 5";
-        alt-6 = "workspace 6";
+        alt-ctrl-shift-f = "fullscreen";
+        alt-ctrl-f = "layout floating tiling";
+        alt-ctrl-t = "layout tiling";
+
+        alt-shift-left = "join-with left";
+        alt-shift-down = "join-with down";
+        alt-shift-up = "join-with up";
+        alt-shift-right = "join-with right";
+
+        alt-ctrl-h = "focus left";
+        alt-ctrl-j = "focus down";
+        alt-ctrl-k = "focus up";
+        alt-ctrl-l = "focus right";
+
+        alt-shift-h = "move left";
+        alt-shift-j = "move down";
+        alt-shift-k = "move up";
+        alt-shift-l = "move right";
+
+        alt-ctrl-f1 = "workspace 0";
+        alt-ctrl-1 = "workspace 1";
+        alt-ctrl-2 = "workspace 2";
+        alt-ctrl-3 = "workspace 3";
+        alt-ctrl-4 = "workspace 4";
+        alt-ctrl-5 = "workspace 5";
+        alt-ctrl-6 = "workspace 6";
 
         alt-shift-p = "workspace --wrap-around prev";
         alt-shift-n = "workspace --wrap-around next";
@@ -55,15 +97,6 @@
         alt-shift-5 = ["move-node-to-workspace 5" "workspace 5"];
         alt-shift-6 = ["move-node-to-workspace 6" "workspace 6"];
 
-        # alt-left = "focus --boundaries-action wrap-around-the-workspace left";
-        # alt-right = "focus --boundaries-action wrap-around-the-workspace right";
-        # alt-up = "focus --boundaries-action wrap-around-the-workspace up";
-        # alt-down = "focus --boundaries-action wrap-around-the-workspace down";
-
-        # alt-shift-left = "move left";
-        # alt-shift-right = "move right";
-        # alt-shift-up = "move up";
-        # alt-shift-down = "move down";
 
         alt-shift-cmd-right = "move-node-to-monitor right";
         alt-shift-cmd-left = "move-node-to-monitor left";
@@ -78,8 +111,10 @@
 
         alt-shift-q = "close --quit-if-last-window";
 
-        alt-r = "mode resize";
-        alt-shift-comma = "mode layout";
+        alt-shift-r = "mode resize";
+        alt-shift-y = "mode layout";
+
+        alt-g = "exec-and-forget open -na wezterm";
       };
 
       mode.resize.binding = {
@@ -108,6 +143,6 @@
 
   services.jankyborders = {
     enable = true;
-    inactive_color = "0x00000000";
+    inactive_color = "0xff494d64";
   };
 }
