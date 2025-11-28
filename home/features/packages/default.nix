@@ -5,45 +5,29 @@
     cachix
 
     nixpkgs-fmt
-    sops
 
     _1password-cli
     jq
     gnused
     ripgrep
     unixtools.watch
-    nmap
     htop
     coreutils
     pigz
     ssm-session-manager-plugin
     wget
-    kubectl
-    kubectx
-    kubernetes-helm
-    kubent
-    stern
     uv
-    cargo
+    nmap
 
     terraform
 
-    nodejs_22
-
-    act
-    ory
-
-    istioctl
     docker-client
     docker-buildx
     dive
     bun
-    k9s
     gh
-    k6
     awscli2
 
     kind
   ];
 }
-

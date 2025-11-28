@@ -25,7 +25,7 @@
 
   home-manager.users.kevin = {
     imports = [
-      ../../home/phobos.nix
+      ../../home/SW-GJGFVMVR73.nix
     ];
   };
 

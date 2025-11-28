@@ -46,13 +46,13 @@
       defaultPackage.x86_64-darwin = home-manager.defaultPackage.x86_64-darwin;
 
       darwinConfigurations = {
-        phobos = nix-darwin.lib.darwinSystem {
+        "SW-GJGFVMVR73" = nix-darwin.lib.darwinSystem {
           specialArgs = extraArgs // {
             remapKeys = false;
           };
           system = "aarch64-darwin";
           modules = [
-            ./systems/phobos
+            ./systems/SW-GJGFVMVR73
             home-manager.darwinModules.default
             {
               home-manager.useGlobalPkgs = true;
@@ -63,7 +63,7 @@
             {
               determinate-nix.customSettings = {
                 lazy-trees = true;
-                trusted-users = "root kevin";
+                trusted-users = "root sebastian";
                 trusted-substituters = "https://cachix.cachix.org https://nixpkgs.cachix.org";
                 trusted-public-keys = "cachix.cachix.org-1:eWNHQldwUO7G2VkjpnjDbWwy4KQ/HNxht7H4SSoMckM= nixpkgs.cachix.org-1:q91R6hxbwFvDqTSDKwDAV4T5PxqXGxswD8vhONFMeOE= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=";
               };
