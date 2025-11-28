@@ -23,16 +23,16 @@ Some applications need to be installed through homebrew, so we just install it.
 git clone git@github.com:hoelshare/nix-dotfiles.git ~/.config/nix-dotfiles
 ```
 
-1. Initialize the Nix setup with
+2. Initialize the Nix setup with
 
 ```bash
-nix run nix-darwin -- switch --flake ~/.config/nix-dotfiles
+sudo nix run nix-darwin -- switch --flake /Users/sebastian/.config/nix-dotfiles
 ```
 
-1. If you want to apply your changes in the future you need to run
+3. If you want to apply your changes in the future you need to run
 
 ```bash
-darwin-rebuild switch --flake ~/.config/nix-dotfiles/ --show-trace
+sudo darwin-rebuild switch --flake /Users/sebastian/.config/nix-dotfiles/ --show-trace
 ```
 
 ### Change default shell

@@ -14,10 +14,12 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    enableAutosuggestions = true;
+    autosuggestion = {
+      enable = true;
+    };
     syntaxHighlighting.enable = true;
 
-    ohMyZsh = {
+    oh-my-zsh = {
       enable = true;
       plugins = [
         "sudo"
@@ -35,10 +37,10 @@
         "command-not-found"
       ];
 
-    }
+    };
 
     # workaround for fixing the path order: https://github.com/LnL7/nix-darwin/issues/122
-    initExtra = ''
+    initContent = ''
       # Homebrew config
       export HOMEBREW_PREFIX="/opt/homebrew"
       export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
