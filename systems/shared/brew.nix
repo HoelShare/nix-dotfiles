@@ -19,8 +19,8 @@
       "lazygit"
       "ollama"
       "jq"
-      "mysql-client"
-      "aqua"
+      "ncdu"
+      "go-parquet-tools"
     ];
 
     casks = [
@@ -34,7 +34,9 @@
       "chatgpt"
       "slack"
       "discord"
+      "whatsapp"
       "visual-studio-code"
+      "postman"
     ];
   };
 }
