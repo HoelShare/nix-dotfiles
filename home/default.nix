@@ -12,7 +12,6 @@
     ./features/python
     ./features/shell
     ./features/tmux
-    ./features/wezterm
   ];
 
   # This value determines the Home Manager release that your configuration is

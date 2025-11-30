@@ -24,10 +24,8 @@
       fetch.prune = true;
 
       # Use 1Password op-ssh-sign as the SSH/GPG signer on macOS
-      gpg = {
-        format = "ssh";
-        program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
-      };
+      gpg.format = "ssh";
+      gpg."ssh".program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
 
       # Git LFS filter configuration (clean/smudge/process)
       filter."lfs".clean = "git-lfs clean -- %f";

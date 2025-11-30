@@ -37,6 +37,7 @@
       "whatsapp"
       "visual-studio-code"
       "postman"
+      "iterm2"
     ];
   };
 }

@@ -5,15 +5,9 @@
   services.aerospace = {
     enable = true;
     package = pkgs.aerospace;
-
-    settings= {
-      enable-normalization-flatten-containers = true;
-      enable-normalization-opposite-orientation-for-nested-containers = true;
-
+    settings = {
       on-focused-monitor-changed = ["move-mouse monitor-lazy-center"];
-      on-focus-changed = [
-        "move-mouse window-lazy-center"
-      ];
+      on-focus-changed = ["move-mouse window-lazy-center"];
 
       automatically-unhide-macos-hidden-apps = false;
 
@@ -21,100 +15,77 @@
       default-root-container-layout = "tiles";
       default-root-container-orientation = "auto";
 
-      gaps = {
-        outer.bottom = 10;
-        outer.top = 10;
-        outer.left = 10;
-        outer.right = 10;
-        inner.horizontal = 10;
-        inner.vertical = 10;
-      };
+      key-mapping.preset = "qwerty";
 
-      on-window-detected = [
-        {
-          "if".app-name-regex-substring = "discord";
-          run = "layout floating";
-        }
-        {
-          "if".app-name-regex-substring = "whatsapp";
-          run = "layout floating";
-        }
-        {
-          "if".app-name-regex-substring = "spotify";
-          run = "layout floating";
-        }
-        {
-          "if".app-name-regex-substring = "chatgpt";
-          run = "layout floating";
-        }
-        {
-          "if".app-name-regex-substring = "slack";
-          run = "layout floating";
-        }
-      ];
+      gaps = {
+        inner = {
+          horizontal = 10;
+          vertical = 10;
+        };
+        outer = {
+          left = 10;
+          right = 10;
+          bottom = 10;
+          top = 10;
+        };
+      };
 
       workspace-to-monitor-force-assignment = {
         "0" = "built-in";
       };
 
-      key-mapping.preset = "qwerty";
       mode.main.binding = {
-        alt-ctrl-shift-f = "fullscreen";
-        alt-ctrl-f = "layout floating tiling";
-        alt-ctrl-t = "layout tiling";
+          ctrl-alt-cmd-left = "focus left";
+          ctrl-alt-cmd-down = "focus down";
+          ctrl-alt-cmd-up = "focus up";
+          ctrl-alt-cmd-right = "focus right";
 
-        alt-shift-left = "join-with left";
-        alt-shift-down = "join-with down";
-        alt-shift-up = "join-with up";
-        alt-shift-right = "join-with right";
+          # -----------------------------
+          # Window Movement (SHIFT + HOMEROW)
+          # -----------------------------
+          ctrl-alt-cmd-shift-left = "move left";
+          ctrl-alt-cmd-shift-down = "move down";
+          ctrl-alt-cmd-shift-up = "move up";
+          ctrl-alt-cmd-shift-right = "move right";
 
-        alt-ctrl-h = "focus left";
-        alt-ctrl-j = "focus down";
-        alt-ctrl-k = "focus up";
-        alt-ctrl-l = "focus right";
+          ctrl-alt-cmd-f = "layout floating tiling";
+          ctrl-alt-cmd-shift-f = "fullscreen";
 
-        alt-shift-h = "move left";
-        alt-shift-j = "move down";
-        alt-shift-k = "move up";
-        alt-shift-l = "move right";
+          ctrl-alt-cmd-1 = "workspace 1";
+          ctrl-alt-cmd-2 = "workspace 2";
+          ctrl-alt-cmd-3 = "workspace 3";
+          ctrl-alt-cmd-4 = "workspace 4";
+          ctrl-alt-cmd-5 = "workspace 5";
+          ctrl-alt-cmd-6 = "workspace 6";
+          ctrl-alt-cmd-7 = "workspace 7";
+          ctrl-alt-cmd-8 = "workspace 8";
+          ctrl-alt-cmd-9 = "workspace 9";
+          ctrl-alt-cmd-0 = "workspace 0";
 
-        alt-ctrl-f1 = "workspace 0";
-        alt-ctrl-1 = "workspace 1";
-        alt-ctrl-2 = "workspace 2";
-        alt-ctrl-3 = "workspace 3";
-        alt-ctrl-4 = "workspace 4";
-        alt-ctrl-5 = "workspace 5";
-        alt-ctrl-6 = "workspace 6";
+          # Move window to workspace
+          ctrl-alt-cmd-shift-1 = "move-node-to-workspace 1";
+          ctrl-alt-cmd-shift-2 = "move-node-to-workspace 2";
+          ctrl-alt-cmd-shift-3 = "move-node-to-workspace 3";
+          ctrl-alt-cmd-shift-4 = "move-node-to-workspace 4";
+          ctrl-alt-cmd-shift-5 = "move-node-to-workspace 5";
+          ctrl-alt-cmd-shift-6 = "move-node-to-workspace 6";
+          ctrl-alt-cmd-shift-7 = "move-node-to-workspace 7";
+          ctrl-alt-cmd-shift-8 = "move-node-to-workspace 8";
+          ctrl-alt-cmd-shift-9 = "move-node-to-workspace 9";
+          ctrl-alt-cmd-shift-0 = "move-node-to-workspace 0";
 
-        alt-shift-p = "workspace --wrap-around prev";
-        alt-shift-n = "workspace --wrap-around next";
+          # -----------------------------
+          # Workspace cycling
+          # -----------------------------
+          ctrl-alt-cmd-tab = "workspace next";
+          ctrl-alt-cmd-shift-tab = "workspace prev";
 
-        alt-shift-f1 = ["move-node-to-workspace 0" "workspace 0"];
-        alt-shift-1 = ["move-node-to-workspace 1" "workspace 1"];
-        alt-shift-2 = ["move-node-to-workspace 2" "workspace 2"];
-        alt-shift-3 = ["move-node-to-workspace 3" "workspace 3"];
-        alt-shift-4 = ["move-node-to-workspace 4" "workspace 4"];
-        alt-shift-5 = ["move-node-to-workspace 5" "workspace 5"];
-        alt-shift-6 = ["move-node-to-workspace 6" "workspace 6"];
+          ctrl-alt-cmd-l = "mode layout";
+          ctrl-alt-cmd-r = "mode resize";
 
-
-        alt-shift-cmd-right = "move-node-to-monitor right";
-        alt-shift-cmd-left = "move-node-to-monitor left";
-
-        alt-shift-space = "layout floating tiling";
-        alt-f = "layout floating tiling";
-
-        alt-enter = "exec-and-forget open -na WezTerm";
-        alt-b = "exec-and-forget open -na /Applications/Zen\\ Browser.app/Contents/MacOS/zen --args --new-window";
-
-        # alt-l = "exec-and-forget pmset displaysleepnow";
-
-        alt-shift-q = "close --quit-if-last-window";
-
-        alt-shift-r = "mode resize";
-        alt-shift-y = "mode layout";
-
-        alt-g = "exec-and-forget open -na wezterm";
+          ctrl-alt-cmd-b = "exec-and-forget open -na /Applications/Comet.app";
+          ctrl-alt-cmd-alt-enter = "exec-and-forget open -na /Applications/iTerm.app";
+          alt-l = "exec-and-forget pmset displaysleepnow";
       };
 
       mode.resize.binding = {
