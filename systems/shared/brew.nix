@@ -31,6 +31,7 @@
       "insomnia"
       "lm-studio"
       "cursor"
+      "ngrok"
       "chatgpt"
       "slack"
       "discord"
