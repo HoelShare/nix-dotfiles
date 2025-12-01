@@ -19,6 +19,7 @@
     uv
     nmap
     nodejs_22
+    tsx
 
     terraform
 
