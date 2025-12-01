@@ -48,9 +48,10 @@
           ctrl-alt-cmd-shift-up = "move up";
           ctrl-alt-cmd-shift-right = "move right";
 
-          ctrl-alt-cmd-f = "layout floating tiling";
-          ctrl-alt-cmd-t = "layout tiling";
-          ctrl-alt-cmd-shift-f = "fullscreen";
+          ctrl-alt-cmd-shift-f = "layout floating tiling";
+          ctrl-alt-cmd-shift-t = "layout tiling";
+          ctrl-alt-cmd-shift-a = "layout accordion horizontal vertical";
+          ctrl-alt-cmd-f = "fullscreen";
 
           "ctrl-alt-cmd-f1" = "workspace 0";
           ctrl-alt-cmd-1 = "workspace 1";

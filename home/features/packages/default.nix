@@ -18,6 +18,7 @@
     wget
     uv
     nmap
+    nodejs_22
 
     terraform
 

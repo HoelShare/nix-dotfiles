@@ -21,6 +21,7 @@
       "jq"
       "ncdu"
       "go-parquet-tools"
+      "mysql-client"
     ];
 
     casks = [

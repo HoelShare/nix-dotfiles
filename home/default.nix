@@ -5,7 +5,6 @@
 
   imports = [
     ./features/git
-    ./features/hammerspoon
     ./features/nano
     ./features/packages
     ./features/php
