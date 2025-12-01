@@ -54,7 +54,6 @@
       # MySQL
       export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
-
       awsx() {
         if [ -z "$AWSX_PROFILES" ]; then
           export AWS_PROFILES=$(aws configure list-profiles | tr '\n' '\0')
@@ -82,5 +81,7 @@
   home.shellAliases = {
     "cat" = "bat -pp";
     "ll" = "eza --icons --group --group-directories-first -l";
+    "ngrokh" = "ngrok http --url=sound-buzzard-picked.ngrok-free.app";
+    "rebuild" = "sudo darwin-rebuild switch --flake ~/.config/nix-dotfiles/ --show-trace";
   };
 }
