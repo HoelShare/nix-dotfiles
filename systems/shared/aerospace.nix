@@ -49,30 +49,25 @@
           ctrl-alt-cmd-shift-right = "move right";
 
           ctrl-alt-cmd-f = "layout floating tiling";
+          ctrl-alt-cmd-t = "layout tiling";
           ctrl-alt-cmd-shift-f = "fullscreen";
 
+          "ctrl-alt-cmd-f1" = "workspace 0";
           ctrl-alt-cmd-1 = "workspace 1";
           ctrl-alt-cmd-2 = "workspace 2";
           ctrl-alt-cmd-3 = "workspace 3";
           ctrl-alt-cmd-4 = "workspace 4";
           ctrl-alt-cmd-5 = "workspace 5";
           ctrl-alt-cmd-6 = "workspace 6";
-          ctrl-alt-cmd-7 = "workspace 7";
-          ctrl-alt-cmd-8 = "workspace 8";
-          ctrl-alt-cmd-9 = "workspace 9";
-          ctrl-alt-cmd-0 = "workspace 0";
 
           # Move window to workspace
+          "ctrl-alt-cmd-shift-f1" = "move-node-to-workspace 0";
           ctrl-alt-cmd-shift-1 = "move-node-to-workspace 1";
           ctrl-alt-cmd-shift-2 = "move-node-to-workspace 2";
           ctrl-alt-cmd-shift-3 = "move-node-to-workspace 3";
           ctrl-alt-cmd-shift-4 = "move-node-to-workspace 4";
           ctrl-alt-cmd-shift-5 = "move-node-to-workspace 5";
           ctrl-alt-cmd-shift-6 = "move-node-to-workspace 6";
-          ctrl-alt-cmd-shift-7 = "move-node-to-workspace 7";
-          ctrl-alt-cmd-shift-8 = "move-node-to-workspace 8";
-          ctrl-alt-cmd-shift-9 = "move-node-to-workspace 9";
-          ctrl-alt-cmd-shift-0 = "move-node-to-workspace 0";
 
           # -----------------------------
           # Workspace cycling
@@ -85,7 +80,6 @@
 
           ctrl-alt-cmd-b = "exec-and-forget open -na /Applications/Comet.app";
           ctrl-alt-cmd-alt-enter = "exec-and-forget open -na /Applications/iTerm.app";
-          alt-l = "exec-and-forget pmset displaysleepnow";
       };
 
       mode.resize.binding = {
