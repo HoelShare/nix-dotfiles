@@ -34,7 +34,6 @@
       "cursor"
       "ngrok"
       "chatgpt"
-      "claude"
       "slack"
       "discord"
       "whatsapp"

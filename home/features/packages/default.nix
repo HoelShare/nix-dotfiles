@@ -20,6 +20,7 @@
     nmap
     nodejs_22
     tsx
+    claude-code
 
     terraform
 
