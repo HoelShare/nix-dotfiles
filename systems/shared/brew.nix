@@ -35,6 +35,7 @@
       "ngrok"
       "chatgpt"
       "slack"
+      "claude"
       "discord"
       "whatsapp"
       "visual-studio-code"
