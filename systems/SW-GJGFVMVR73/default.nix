@@ -28,10 +28,6 @@
     ];
   };
 
-  environment.systemPackages = with pkgs; [
-    raycast
-  ];
-
   nixpkgs.config.allowUnfree = true;
 
   programs.zsh.enable = true;
