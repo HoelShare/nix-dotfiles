@@ -22,6 +22,7 @@
       "ncdu"
       "go-parquet-tools"
       "mysql-client"
+      "gum"
     ];
 
     casks = [
