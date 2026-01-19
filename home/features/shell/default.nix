@@ -52,6 +52,8 @@
       # Go Binaries
       export PATH="$GOPATH/bin:$PATH"
 
+      export PATH="$HOME/.local/bin:$PATH"
+
       # MySQL
       export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
