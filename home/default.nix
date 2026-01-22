@@ -7,6 +7,7 @@
     ./features/git
     ./features/nano
     ./features/packages
+    ./features/go
     ./features/php
     ./features/python
     ./features/shell
