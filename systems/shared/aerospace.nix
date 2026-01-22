@@ -75,6 +75,10 @@
           # -----------------------------
           ctrl-alt-cmd-tab = "workspace next";
           ctrl-alt-cmd-shift-tab = "workspace prev";
+          pageUp = "workspace next";
+          pageDown = "workspace prev";
+          shift-pageUp = "move-node-to-workspace next";
+          shift-pageDown = "move-node-to-workspace prev";
 
           ctrl-alt-cmd-l = "mode layout";
           ctrl-alt-cmd-r = "mode resize";
