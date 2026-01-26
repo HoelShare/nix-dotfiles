@@ -54,6 +54,9 @@
 
       export PATH="$HOME/.local/bin:$PATH"
 
+      # Mise
+      eval "$(mise activate zsh)"
+
       # MySQL
       export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 

@@ -20,6 +20,7 @@
       "ollama"
       "jq"
       "ncdu"
+      "mise"
       "go-parquet-tools"
       "mysql-client"
       "gum"
