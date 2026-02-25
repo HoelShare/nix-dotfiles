@@ -25,6 +25,7 @@
       "mysql-client"
       "gum"
       "ffmpeg"
+      "peonping/tap/peon-ping"
     ];
 
     casks = [
