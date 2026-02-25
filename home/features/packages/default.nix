@@ -24,6 +24,8 @@
 
     terraform
 
+    postgresql
+
     docker-client
     docker-buildx
     dive

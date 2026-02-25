@@ -24,6 +24,7 @@
       "go-parquet-tools"
       "mysql-client"
       "gum"
+      "ffmpeg"
     ];
 
     casks = [
