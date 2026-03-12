@@ -18,7 +18,6 @@
     wget
     uv
     nmap
-    nodejs_22
     tsx
     claude-code
 

@@ -47,7 +47,6 @@
       export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
       export MANPATH="/opt/homebrew/share/man:$MANPATH"
       export INFOPATH="/opt/homebrew/share/info:$INFOPATH"
-      export AWS_PROFILE=acl
 
       # Go Binaries
       export PATH="$GOPATH/bin:$PATH"

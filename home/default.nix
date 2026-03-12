@@ -12,6 +12,7 @@
     ./features/python
     ./features/shell
     ./features/tmux
+    ./features/node
   ];
 
   # This value determines the Home Manager release that your configuration is
