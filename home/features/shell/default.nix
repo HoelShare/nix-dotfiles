@@ -72,6 +72,98 @@
           echo "Found valid SSO session, using it!"
         fi
       }
+
+      codex_commit_all() {
+        local diff_file message_file prompt commit_message confirm
+
+        if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+          echo "Not inside a git repository."
+          return 1
+        fi
+
+        if [ -z "$(git status --short)" ]; then
+          echo "Working tree is clean."
+          return 1
+        fi
+
+        diff_file=$(mktemp)
+        message_file=$(mktemp)
+
+        {
+          echo "=== GIT STATUS ==="
+          git status --short
+          echo
+          echo "=== STAGED DIFF ==="
+          git --no-pager diff --cached --no-ext-diff
+          echo
+          echo "=== UNSTAGED DIFF ==="
+          git --no-pager diff --no-ext-diff
+
+          if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            echo
+            echo "=== UNTRACKED FILE DIFFS ==="
+            while IFS= read -r file; do
+              [ -z "$file" ] && continue
+              echo
+              echo "--- $file ---"
+              git --no-pager diff --no-index -- /dev/null "$file" || true
+            done < <(git ls-files --others --exclude-standard)
+          fi
+        } > "$diff_file"
+
+        cat "$diff_file"
+        echo
+
+        read "confirm?Generate a conventional commit message from this diff and commit all current changes? [y/N] "
+        echo
+
+        if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
+          rm -f "$diff_file" "$message_file"
+          echo "Commit cancelled."
+          return 1
+        fi
+
+        prompt=$(cat <<'EOF'
+Review the git status and diffs from stdin and return exactly one conventional commit message.
+Requirements:
+- Output exactly one line.
+- Format: type(scope optional): summary
+- Choose the most appropriate conventional commit type.
+- Keep the summary specific to the provided changes.
+- No quotes, bullets, code fences, or explanation.
+- Maximum 72 characters.
+EOF
+)
+
+        if ! codex exec --skip-git-repo-check --color never -C "$(git rev-parse --show-toplevel)" -o "$message_file" "$prompt" < "$diff_file"; then
+          rm -f "$diff_file" "$message_file"
+          echo "Codex failed to generate a commit message."
+          return 1
+        fi
+
+        commit_message=$(tr -d '\r' < "$message_file" | tail -n 1 | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+
+        if [ -z "$commit_message" ]; then
+          rm -f "$diff_file" "$message_file"
+          echo "Codex returned an empty commit message."
+          return 1
+        fi
+
+        echo "Commit message: $commit_message"
+        read "confirm?Commit all current changes with this message? [y/N] "
+        echo
+
+        if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
+          rm -f "$diff_file" "$message_file"
+          echo "Commit cancelled."
+          return 1
+        fi
+
+        rm -f "$diff_file" "$message_file"
+
+        git add -A
+        git commit -m "$commit_message"
+      }
     '';
   };
 
@@ -85,6 +177,7 @@
 
   home.shellAliases = {
     "cat" = "bat -pp";
+    "ccommit" = "codex_commit_all";
     "ll" = "eza --icons --group --group-directories-first -l";
     "ngrokh" = "ngrok http --url=sound-buzzard-picked.ngrok-free.app";
     "rebuild" = "sudo darwin-rebuild switch --flake ~/.config/nix-dotfiles/ --show-trace";

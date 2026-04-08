@@ -4,6 +4,7 @@
 }: {
 
   imports = [
+    ./features/claude
     ./features/git
     ./features/nano
     ./features/packages

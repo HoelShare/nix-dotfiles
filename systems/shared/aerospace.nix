@@ -49,7 +49,7 @@
           ctrl-alt-cmd-shift-right = "move right";
 
           ctrl-alt-cmd-shift-f = "layout floating tiling";
-          ctrl-alt-cmd-shift-t = "layout tiling";
+          ctrl-alt-cmd-shift-t = "layout tiles horizontal vertical";
           ctrl-alt-cmd-shift-a = "layout accordion horizontal vertical";
           ctrl-alt-cmd-f = "fullscreen";
 

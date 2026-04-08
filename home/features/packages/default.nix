@@ -19,7 +19,6 @@
     uv
     nmap
     tsx
-    claude-code
 
     terraform
 
