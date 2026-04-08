@@ -74,7 +74,7 @@
       }
 
       codex_commit_all() {
-        local diff_file message_file prompt commit_message confirm
+        local diff_file message_file prompt commit_message
 
         if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
           echo "Not inside a git repository."
@@ -114,15 +114,6 @@
         cat "$diff_file"
         echo
 
-        read "confirm?Generate a conventional commit message from this diff and commit all current changes? [y/N] "
-        echo
-
-        if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
-          rm -f "$diff_file" "$message_file"
-          echo "Commit cancelled."
-          return 1
-        fi
-
         prompt=$(cat <<'EOF'
 Review the git status and diffs from stdin and return exactly one conventional commit message.
 Requirements:
@@ -150,15 +141,6 @@ EOF
         fi
 
         echo "Commit message: $commit_message"
-        read "confirm?Commit all current changes with this message? [y/N] "
-        echo
-
-        if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
-          rm -f "$diff_file" "$message_file"
-          echo "Commit cancelled."
-          return 1
-        fi
-
         rm -f "$diff_file" "$message_file"
 
         git add -A
