@@ -12,7 +12,7 @@
     };
 
     signing.key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGzSQRZ5tV5xO8s/cp2Q2PwGYQzTdTIcWQ91Mf8xL4+k";
-    signing.signByDefault = false;
+    signing.signByDefault = true;
 
     settings = {
       user = {
