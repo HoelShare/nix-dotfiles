@@ -29,7 +29,6 @@
 
     casks = [
       "orbstack"
-      "hammerspoon"
       "gitify"
       "codex"
       "insomnia"
@@ -44,6 +43,8 @@
       "visual-studio-code"
       "postman"
       "iterm2"
+      "dotnet-sdk"
+      "godot-mono"
     ];
   };
 }
