@@ -111,8 +111,4 @@
     };
   };
 
-  services.jankyborders = {
-    enable = true;
-    inactive_color = "0xff494d64";
-  };
 }

@@ -45,7 +45,7 @@ let
         exit 1
       fi
 
-      makeWrapper "${pkgs.nodejs_22}/bin/node" "$out/bin/uipro" \
+      makeWrapper "${pkgs.nodejs_24}/bin/node" "$out/bin/uipro" \
         --add-flags "$out/lib/uipro-cli/$BIN_PATH"
 
       runHook postInstall
@@ -62,7 +62,7 @@ let
 in
 {
   home.packages = [
-    pkgs.nodejs_22
+    pkgs.nodejs_24
     uipro-cli
   ];
 }

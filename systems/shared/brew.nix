@@ -25,6 +25,7 @@
       "mysql-client"
       "gum"
       "ffmpeg"
+      "vercel-cli"
     ];
 
     casks = [
