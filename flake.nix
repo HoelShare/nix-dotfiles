@@ -36,10 +36,6 @@
       };
     in
     {
-      defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
-      defaultPackage.aarch64-darwin = home-manager.defaultPackage.aarch64-darwin;
-      defaultPackage.x86_64-darwin = home-manager.defaultPackage.x86_64-darwin;
-
       darwinConfigurations = {
         "SW-GJGFVMVR73" = nix-darwin.lib.darwinSystem {
           specialArgs = extraArgs // {
