@@ -65,4 +65,25 @@ in
     pkgs.nodejs_24
     uipro-cli
   ];
+
+  # Pi discovers custom model providers from this file. Ollama exposes an
+  # OpenAI-compatible endpoint locally and does not require a real API key;
+  # Pi requires a non-empty value before showing the provider in `/model`.
+  home.file.".pi/agent/models.json".text = builtins.toJSON {
+    providers.ollama = {
+      baseUrl = "http://127.0.0.1:11434/v1";
+      api = "openai-completions";
+      apiKey = "ollama";
+      compat = {
+        supportsDeveloperRole = false;
+        supportsReasoningEffort = false;
+      };
+      models = [
+        {
+          id = "qwen2.5-coder:7b";
+          name = "Qwen 2.5 Coder 7B (Ollama)";
+        }
+      ];
+    };
+  };
 }

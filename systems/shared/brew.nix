@@ -12,12 +12,17 @@
 
     taps = [
       "aws/tap"
+      {
+        name = "shopware/tap";
+        trusted = true;
+      }
     ];
 
     brews = [
       "docker-credential-helper"
       "lazygit"
       "ollama"
+      "pi-coding-agent"
       "jq"
       "ncdu"
       "mise"
@@ -46,6 +51,7 @@
       "iterm2"
       "dotnet-sdk"
       "godot-mono"
+      "shopware/tap/shopware-cli"
     ];
   };
 }

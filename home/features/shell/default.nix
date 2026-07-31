@@ -47,6 +47,8 @@
       export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
       export MANPATH="/opt/homebrew/share/man:$MANPATH"
       export INFOPATH="/opt/homebrew/share/info:$INFOPATH"
+      export SW_PAAS_INSTALL="$HOME/.sw-paas"
+      export PATH="$SW_PAAS_INSTALL/bin/:$PATH"
 
       # Go Binaries
       export PATH="$GOPATH/bin:$PATH"
@@ -163,5 +165,6 @@ EOF
     "ll" = "eza --icons --group --group-directories-first -l";
     "ngrokh" = "ngrok http --url=sound-buzzard-picked.ngrok-free.app";
     "rebuild" = "sudo darwin-rebuild switch --flake ~/.config/nix-dotfiles/ --show-trace";
+    "claude-private" = "CLAUDE_CONFIG_DIR=$HOME/.claude-private claude";
   };
 }
