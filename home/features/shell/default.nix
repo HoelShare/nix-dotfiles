@@ -19,6 +19,12 @@
     };
     syntaxHighlighting.enable = true;
 
+    # OrbStack writes this into ~/.zprofile if missing; keep it declarative
+    # so it doesn't clobber the home-manager-managed file again.
+    profileExtra = ''
+      source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+    '';
+
     oh-my-zsh = {
       enable = true;
       plugins = [
