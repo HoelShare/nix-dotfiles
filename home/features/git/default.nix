@@ -27,12 +27,6 @@
       gpg.format = "ssh";
       gpg."ssh".program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
 
-      # Git LFS filter configuration (clean/smudge/process)
-      filter."lfs".clean = "git-lfs clean -- %f";
-      filter."lfs".smudge = "git-lfs smudge -- %f";
-      filter."lfs".process = "git-lfs filter-process";
-      filter."lfs".required = true;
-
       url."git@github.com:".insteadOf = "https://github.com";
     };
   };

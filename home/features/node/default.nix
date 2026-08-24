@@ -3,10 +3,6 @@
 let
   version = "2.2.3";
 
-  # npm "happy" — Claude Code mobile/web client. Vendored from nixpkgs
-  # (pkgs/by-name/ha/happy-coder) because our nixpkgs pin predates it.
-  happy-coder = pkgs.callPackage ./happy-coder.nix { };
-
   # Package uipro-cli from npm because it is not (currently) available in nixpkgs.
   uipro-cli = pkgs.stdenvNoCC.mkDerivation {
     pname = "uipro-cli";
@@ -67,7 +63,7 @@ in
 {
   home.packages = [
     pkgs.nodejs_24
-    happy-coder
+    pkgs.happy-coder # npm "happy" — Claude Code mobile/web client
     uipro-cli
   ];
 
