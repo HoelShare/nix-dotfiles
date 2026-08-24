@@ -16,6 +16,7 @@
         name = "shopware/tap";
         trusted = true;
       }
+      "chattymin/tap"
     ];
 
     brews = [
@@ -52,6 +53,7 @@
       "dotnet-sdk"
       "godot-mono"
       "shopware/tap/shopware-cli"
+      "chattymin/tap/poke-token-bar"
     ];
   };
 }
