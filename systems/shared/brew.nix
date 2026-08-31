@@ -11,9 +11,8 @@
     };
 
     taps = [
-      "aws/tap"
       {
-        name = "shopware/tap";
+        name = "aws/tap";
         trusted = true;
       }
       "chattymin/tap"
@@ -31,7 +30,9 @@
       "mysql-client"
       "gum"
       "ffmpeg"
+      "rtk"
       "vercel-cli"
+      "uv"
     ];
 
     casks = [
@@ -52,7 +53,7 @@
       "iterm2"
       "dotnet-sdk"
       "godot-mono"
-      "shopware/tap/shopware-cli"
+      "shopware-cli"
       "chattymin/tap/poke-token-bar"
     ];
   };
