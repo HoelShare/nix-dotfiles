@@ -11,8 +11,9 @@
     };
 
     taps = [
+      "aws/tap"
       {
-        name = "aws/tap";
+        name = "shopware/tap";
         trusted = true;
       }
       "chattymin/tap"
@@ -38,7 +39,13 @@
     casks = [
       "orbstack"
       "gitify"
-      "codex"
+      {
+        name = "codex";
+        # ponytail: 0.153.2 shipped signed but not notarized, Gatekeeper kills it.
+        # brew bundle only passes args on fresh install, not upgrade; if a later
+        # release breaks again: xattr -dr com.apple.quarantine /opt/homebrew/Caskroom/codex
+        args.no_quarantine = true;
+      }
       "insomnia"
       "lm-studio"
       "cursor"
