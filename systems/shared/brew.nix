@@ -22,7 +22,6 @@
     brews = [
       "docker-credential-helper"
       "lazygit"
-      "ollama"
       "pi-coding-agent"
       "jq"
       "ncdu"
