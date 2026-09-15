@@ -63,7 +63,6 @@ in
 {
   home.packages = [
     pkgs.nodejs_24
-    pkgs.happy-coder # npm "happy" — Claude Code mobile/web client
     uipro-cli
   ];
 }
