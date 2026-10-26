@@ -31,7 +31,6 @@
       "gum"
       "ffmpeg"
       "rtk"
-      "vercel-cli"
       "uv"
     ];
 
@@ -60,6 +59,7 @@
       "dotnet-sdk"
       "godot-mono"
       "shopware-cli"
+      "vercel"
       "chattymin/tap/poke-token-bar"
     ];
   };
